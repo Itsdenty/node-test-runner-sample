@@ -25,10 +25,17 @@ unit['libFunctions.generateDummyName should have character length of 7'] = funct
   done();
 };
 
-// Assert that the flip function is returning a string
+// Assert that the flipString function is returning a string
 unit['libFunctions.flipString should return a string'] = function(done){
   var val = libFunctions.flipString('communication');
   assert.equal(typeof(val), 'string');
+  done();
+};
+
+// Assert that the flipString function will not crash when supplied with invalid parameter
+unit['libFunctions.flipString should return false for invalid parameter'] = function(done){
+  var val = libFunctions.flipString(true);
+  assert.equal(val, false);
   done();
 };
 
@@ -50,6 +57,13 @@ unit['libFunctions.slugIt should return a string'] = function(done){
 unit['libFunctions.flipString should slug a string'] = function(done){
   var val = libFunctions.slugIt('this is slugged');
   assert.equal(val.includes('_'), true);
+  done();
+};
+
+// Assert that the slugIt function will not crash when supplied with invalid parameter
+unit['libFunctions.slugIt should return false for invalid parameter'] = function(done){
+  var val = libFunctions.slugIt(true);
+  assert.equal(val, false);
   done();
 };
 
